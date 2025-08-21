@@ -1,7 +1,7 @@
 [build]
   base = "frontAngular"
-  publish = "dist/front-angular"
   command = "npm run build"
+  publish = "dist/front-angular/browser"
 
 [[redirects]]
   from = "/*"
