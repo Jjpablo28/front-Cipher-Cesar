@@ -1,0 +1,9 @@
+[build]
+  base = "frontAngular"
+  publish = "frontAngular/dist/front-angular"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
