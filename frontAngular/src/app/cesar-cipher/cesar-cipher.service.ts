@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class CesarCipherService {
 
-  private apiUrlEncriptar = 'http://localhost:3000/api/cipher/encriptar'; // 🔹 Ajusta el puerto a tu backend
-private apiUrlDesencriptar='http://localhost:3000/api/cipher/desencriptar';
+  private apiUrlEncriptar = 'https://ciphercesar.onrender.com/api/cipher/encriptar'; 
+private apiUrlDesencriptar='https://ciphercesar.onrender.com/api/cipher/desencriptar';
   constructor(private http: HttpClient) {}
 
   encrypt(palabra: string, clave: number): Observable<any> {
