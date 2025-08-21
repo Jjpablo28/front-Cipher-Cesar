@@ -1,0 +1,21 @@
+<h1>Cifrado César 🔐</h1>
+
+<form (ngSubmit)="onSubmit()">
+  <label for="palabra">Palabra:</label>
+  <input type="text" id="palabra" [(ngModel)]="palabra" name="palabra" required>
+
+  <label for="clave">Clave (número):</label>
+  <input type="number" id="clave" [(ngModel)]="clave" name="clave" required>
+
+  <label for="accion">Acción:</label>
+  <select id="accion" [(ngModel)]="accion" name="accion">
+    <option value="encriptar">Encriptar</option>
+    <option value="desencriptar">Desencriptar</option>
+  </select>
+
+  <button type="submit">Enviar</button>
+</form>
+
+<div class="resultado">
+  <strong>Resultado:</strong> {{ resultado }}
+</div>
