@@ -1,4 +1,4 @@
-<h1>Cifrado César 🔐</h1>
+<h1>Cifrado César </h1>
 
 <form (ngSubmit)="onSubmit()">
   <label for="palabra">Palabra:</label>
@@ -16,6 +16,19 @@
   <button type="submit">Enviar</button>
 </form>
 
-<div class="resultado">
-  <strong>Resultado:</strong> {{ resultado }}
+<div *ngIf="mostrarCargando" class="overlay">
+  <div class="popup">
+    <h2>Procesando...</h2>
+    <p>Conectando con el servidor</p>
+    <div class="spinner"></div>
+  </div>
+</div>
+
+<!-- Popup de Resultado -->
+<div *ngIf="mostrarPopup" class="overlay">
+  <div class="popup">
+    <h2>Resultado</h2>
+    <p>{{ resultado }}</p>
+    <button (click)="cerrarPopup()">Cerrar</button>
+  </div>
 </div>

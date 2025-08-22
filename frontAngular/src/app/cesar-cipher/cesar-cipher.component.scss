@@ -1,45 +1,173 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 40px;
-  background: #f4f4f4;
+  background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
 }
+
 h1 {
   text-align: center;
-  color: #333;
+  color: #f0f4f8;
+  margin-bottom: 20px;
 }
+
 form {
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  max-width: 400px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-width: 420px;
   margin: auto;
+
+  label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #34495e;
+  }
+
+  input, select, button {
+    width: 100%;
+    height: 42px;            /* 🔹 Tamaño uniforme */
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    box-sizing: border-box;  /* 🔹 Para que el padding no cambie el tamaño */
+  }
+
+  select {
+    appearance: none;       /* 🔹 Quita el estilo por defecto del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff; /* 🔹 Fondo igual que los inputs */
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52,152,219,0.4);
+  }
+
+  button {
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+    margin-top: 18px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    border: none;
+
+    &:hover {
+      background: #2980b9;
+    }
+  }
 }
-label {
-  display: block;
-  margin-top: 10px;
+
+/* 🔹 Popup (modal) */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  animation: slideDown 0.3s ease;
+
+  h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+
+    &:hover {
+      background: #c0392b;
+    }
+  }
+}
+
+/* 🔹 Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* Spinner animado */
+.spinner {
+  margin: 15px auto;
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.popup p {
+  font-size: 18px;
   font-weight: bold;
-}
-input, select, button {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-button {
-  background: #4CAF50;
-  color: white;
-  cursor: pointer;
-  margin-top: 15px;
-}
-button:hover {
-  background: #45a049;
-}
-.resultado {
-  margin-top: 20px;
-  padding: 10px;
-  background: #eaf2f8;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  color: #27ae60;
+  margin-bottom: 20px;
+
+  /* 🔹 Correcciones */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
 }
